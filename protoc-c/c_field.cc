@@ -121,8 +121,7 @@ void FieldGenerator::GenerateDescriptorInitializerGeneric(io::Printer* printer,
   if (oneof != NULL)
     variables["oneofname"] = CamelToLower(oneof->name());
 
-  if (FieldSyntax(descriptor_) == 3 &&
-    descriptor_->label() == FieldDescriptor::LABEL_OPTIONAL) {
+  if (FieldSyntax(descriptor_) == 3 && descriptor_->label() == FieldDescriptor::LABEL_OPTIONAL && !descriptor_->has_presence()) {
     variables["LABEL"] = "NONE";
     optional_uses_has = false;
   } else {
