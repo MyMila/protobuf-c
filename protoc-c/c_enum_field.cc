@@ -125,7 +125,7 @@ void EnumFieldGenerator::GenerateStaticInit(io::Printer* printer) const
       printer->Print(variables_, "$default$");
       break;
     case FieldDescriptor::LABEL_OPTIONAL:
-      if (descriptor_->containing_oneof() == NULL && descriptor_->has_presence())
+      if (descriptor_->has_presence())
         printer->Print(variables_, "0, ");
       printer->Print(variables_, "$default$");
       break;
